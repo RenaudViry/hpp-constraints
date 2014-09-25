@@ -99,12 +99,18 @@ namespace hpp {
       {
 	targetInGlobalFrame_ = reference;
       }
-
-      /// Get position of target point in global frame
-      const vector3_t& reference () const
+      /// Set position of target point in both global and local frame
+      void reference (const vector3_t& localReference, const vector3_t& globalReference)
       {
-	return targetInGlobalFrame_;
+  pointInLocalFrame_ = localReference;
+  targetInGlobalFrame_ = globalReference;
       }
+      /// Get position of target point in both local and global frame
+      const std::pair< vector3_t, vector3_t > reference () const
+      {
+	return std::make_pair (targetInGlobalFrame_, pointInLocalFrame_);
+      }
+
       /// Constructor
       ///
       /// \param robot the robot the constraint applies to,
