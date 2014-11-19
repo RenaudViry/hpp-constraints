@@ -108,7 +108,7 @@ namespace hpp {
       /// Get position of target point in both local and global frame
       const std::pair< vector3_t, vector3_t > reference () const
       {
-	return std::make_pair (targetInGlobalFrame_, pointInLocalFrame_);
+	return std::make_pair (pointInLocalFrame_, targetInGlobalFrame_);
       }
 
       /// Constructor
